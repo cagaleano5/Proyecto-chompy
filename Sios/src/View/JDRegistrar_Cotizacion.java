@@ -17,7 +17,7 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setTitle("Registrar Cotización");
-        //prueba github
+        
 
     }
 
