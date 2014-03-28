@@ -581,8 +581,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantEstampado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorEstampado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorEstampadoKeyReleased"/>
           </Events>
@@ -596,6 +602,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantCosido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
@@ -603,6 +612,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorCosido">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorCosidoKeyReleased"/>
           </Events>
@@ -616,6 +628,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantEmblocado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
@@ -623,6 +638,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorEmblocado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorEmblocadoKeyReleased"/>
           </Events>
@@ -636,6 +654,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantTransporte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
@@ -643,6 +664,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorTransporte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorTransporteKeyReleased"/>
           </Events>
@@ -656,8 +680,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantOtros">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantTerminado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbxTerminado">
           <Properties>
@@ -672,6 +702,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorTerminado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorTerminadoKeyReleased"/>
           </Events>
@@ -682,6 +715,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorOtros">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorOtrosKeyReleased"/>
           </Events>
@@ -771,6 +807,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUtilidad">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="0"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="120" y="10" width="40" height="-1"/>
@@ -795,6 +834,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="0"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Constraints>
@@ -819,6 +859,9 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="txtCantPlegado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
@@ -826,6 +869,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorPlegado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorPlegadoKeyReleased"/>
           </Events>
@@ -839,6 +885,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantEmpacado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel20">
           <Properties>
@@ -846,6 +895,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorEmpacado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorEmpacadoKeyReleased"/>
           </Events>
@@ -1165,11 +1217,20 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantOriginal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorOriginal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorOriginalKeyReleased"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSubtoriginal">
           <Properties>
@@ -1180,6 +1241,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantCopia">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel25">
           <Properties>
@@ -1187,6 +1251,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorCopia">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorCopiaKeyReleased"/>
           </Events>
@@ -1200,6 +1267,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantManila">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel26">
           <Properties>
@@ -1207,6 +1277,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorManila">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorManilaKeyReleased"/>
           </Events>
@@ -1220,6 +1293,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantCorte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel27">
           <Properties>
@@ -1227,6 +1303,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorCorte">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorCorteKeyReleased"/>
           </Events>
@@ -1253,8 +1332,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantPreprensa">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorPreprensa">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorPreprensaKeyReleased"/>
           </Events>
@@ -1279,8 +1364,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantPlancha">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorPlancha">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorPlanchaKeyReleased"/>
           </Events>
@@ -1305,8 +1396,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantImpresion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorImpresion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorImpresionKeyReleased"/>
           </Events>
@@ -1320,6 +1417,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantNumero">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>
@@ -1327,6 +1427,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorNumero">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorNumeroKeyReleased"/>
           </Events>
@@ -1340,6 +1443,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantGrafado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel30">
           <Properties>
@@ -1347,6 +1453,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorGrafado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorGrafadoKeyReleased"/>
           </Events>
@@ -1360,6 +1469,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantTroquel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel31">
           <Properties>
@@ -1367,6 +1479,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorTroquel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorTroquelKeyReleased"/>
           </Events>
@@ -1380,6 +1495,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantRepujado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel32">
           <Properties>
@@ -1387,6 +1505,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorRepujado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorRepujadoKeyReleased"/>
           </Events>
@@ -1400,6 +1521,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCantRealzado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel33">
           <Properties>
@@ -1407,6 +1531,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtValorRealzado">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtValorRealzadoKeyReleased"/>
           </Events>
