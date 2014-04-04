@@ -1,14 +1,15 @@
 package Modelo;
 import java.sql.Connection;
-import java.sql.Date;
+//import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 public class Cotizacion {
     private int id_cotizacion;
     private int id_cliente;
     private String nombre_trabajo;
-    private Date fecha_cotizacion;
+//    private Date fecha_cotizacion;
     private int cant_papel_original;
     private int valor_papel_original;
     private int cant_papel_copia;
@@ -64,7 +65,7 @@ public class Cotizacion {
         
     }
 
-    public Cotizacion(int id_cotizacion, int id_cliente, String nombre_trabajo, Date fecha_cotizacion, int cant_papel_original, 
+    public Cotizacion(int id_cotizacion, int id_cliente, String nombre_trabajo, int cant_papel_original, 
         int valor_papel_original, int cant_papel_copia, int valor_papel_copia, int cant_manila, int valor_manila, int cant_corte, 
         int valor_corte, String preprensa, int cant_preprensa, int valor_preprensa, String tipo_plancha, int cant_tipo_plancha, 
         int valor_plancha, String tipo_impresion, int cant_tipo_impresion, int valor_impresion, int cant_numeracion, int valor_numeracion, 
@@ -75,7 +76,7 @@ public class Cotizacion {
         this.id_cotizacion = id_cotizacion;
         this.id_cliente = id_cliente;
         this.nombre_trabajo = nombre_trabajo;
-        this.fecha_cotizacion = fecha_cotizacion;
+//        this.fecha_cotizacion = fecha_cotizacion;
         this.cant_papel_original = cant_papel_original;
         this.valor_papel_original = valor_papel_original;
         this.cant_papel_copia = cant_papel_copia;
@@ -147,13 +148,13 @@ public class Cotizacion {
         this.nombre_trabajo = nombre_trabajo;
     }
 
-    public Date getFecha_cotizacion() {
-        return fecha_cotizacion;
-    }
+//    public Date getFecha_cotizacion() {
+//        return fecha_cotizacion;
+//    }
 
-    public void setFecha_cotizacion(Date fecha_cotizacion) {
-        this.fecha_cotizacion = fecha_cotizacion;
-    }
+//    public void setFecha_cotizacion(Date fecha_cotizacion) {
+//        this.fecha_cotizacion = fecha_cotizacion;
+//    }
 
     public int getCant_papel_original() {
         return cant_papel_original;
@@ -527,57 +528,57 @@ public class Cotizacion {
             try{
                 con=objConexion.stringcon();
                 //Connection conn=DriverManager.getConnection(url, "","");
-                st=con.prepareStatement("{call Registrar_Cotizacion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+                st=con.prepareStatement("{call Registrar_Cotizacion(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
 //                st.setInt(1,id_cotizacion);
                 st.setInt(1,id_cliente);
 		st.setString(2,nombre_trabajo);
-		st.setDate(3,fecha_cotizacion);
-                st.setInt(4,cant_papel_original);
-		st.setInt(5,valor_papel_original);
-                st.setInt(6,cant_papel_copia);
-		st.setInt(7,valor_papel_copia);
-                st.setInt(8,cant_manila);
-		st.setInt(9,valor_manila);
-                st.setInt(10,cant_corte);
-		st.setInt(11,valor_corte);
-                st.setString(12,preprensa);
-		st.setInt(13,cant_preprensa);
-		st.setInt(14,valor_preprensa);
-                st.setString(15,tipo_plancha);
-		st.setInt(16,cant_tipo_plancha);
-		st.setInt(17,valor_plancha);
-                st.setString(18,tipo_impresion);
-		st.setInt(19,cant_tipo_impresion);
-		st.setInt(20,valor_impresion);
-                st.setInt(21,cant_numeracion);
-                st.setInt(22,valor_numeracion);
-                st.setInt(23,cant_grafado);
-		st.setInt(24,valor_grafado);
-                st.setInt(25,cant_troquelado);
-		st.setInt(26,valor_troquelado);
-                st.setInt(27,cant_repujado);
-		st.setInt(28,valor_repujado);
-                st.setInt(29,cant_realzado);
-		st.setInt(30,valor_realzado);
-                st.setInt(31,cant_estampado);
-		st.setInt(32,valor_estampado);
-                st.setInt(33,cant_plegado);
-		st.setInt(34,valor_plegado);
-                st.setInt(35,cant_cosido);
-		st.setInt(36,valor_cosido);
-                st.setInt(37,cant_emblocado);
-		st.setInt(38,valor_emblocado);
-                st.setInt(39,cant_empacado);
-		st.setInt(40,valor_empacado);
-                st.setInt(41,cant_transporte);
-		st.setInt(42,valor_transporte);
-                st.setInt(43,cant_otros);
-		st.setInt(44,valor_otros);
-                st.setString(45,terminado);
-                st.setInt(46,cant_terminado);
-                st.setInt(47,valor_terminado);
-                st.setDouble(48,utilidad);
-		st.setInt(49,estado);
+//		st.setDate(3,fecha_cotizacion);
+                st.setInt(3,cant_papel_original);
+		st.setInt(4,valor_papel_original);
+                st.setInt(5,cant_papel_copia);
+		st.setInt(6,valor_papel_copia);
+                st.setInt(7,cant_manila);
+		st.setInt(8,valor_manila);
+                st.setInt(9,cant_corte);
+		st.setInt(10,valor_corte);
+                st.setString(11,preprensa);
+		st.setInt(12,cant_preprensa);
+		st.setInt(13,valor_preprensa);
+                st.setString(14,tipo_plancha);
+		st.setInt(15,cant_tipo_plancha);
+		st.setInt(16,valor_plancha);
+                st.setString(17,tipo_impresion);
+		st.setInt(18,cant_tipo_impresion);
+		st.setInt(19,valor_impresion);
+                st.setInt(20,cant_numeracion);
+                st.setInt(21,valor_numeracion);
+                st.setInt(22,cant_grafado);
+		st.setInt(23,valor_grafado);
+                st.setInt(24,cant_troquelado);
+		st.setInt(25,valor_troquelado);
+                st.setInt(26,cant_repujado);
+		st.setInt(27,valor_repujado);
+                st.setInt(28,cant_realzado);
+		st.setInt(29,valor_realzado);
+                st.setInt(30,cant_estampado);
+		st.setInt(31,valor_estampado);
+                st.setInt(32,cant_plegado);
+		st.setInt(33,valor_plegado);
+                st.setInt(34,cant_cosido);
+		st.setInt(35,valor_cosido);
+                st.setInt(36,cant_emblocado);
+		st.setInt(37,valor_emblocado);
+                st.setInt(38,cant_empacado);
+		st.setInt(39,valor_empacado);
+                st.setInt(40,cant_transporte);
+		st.setInt(41,valor_transporte);
+                st.setInt(42,cant_otros);
+		st.setInt(43,valor_otros);
+                st.setString(44,terminado);
+                st.setInt(45,cant_terminado);
+                st.setInt(46,valor_terminado);
+                st.setDouble(47,utilidad);
+		st.setInt(48,estado);
 		ResultSet rs=st.executeQuery();
                 //con.close();
                 String resultado="";
@@ -591,9 +592,34 @@ public class Cotizacion {
                 return "error";
             }
     }
-    
-    
-    
+     public ResultSet objBuscar_Cotizacion(int id){
+        try {
+            con=objConexion.stringcon();
+            st=con.prepareStatement("Buscar_Cotizacion '"+id+"'");
+            ResultSet rs = st.executeQuery();
+            return rs; 
+        } catch (Exception e) {
+           return null;
+        }
+          
+     }
+    public String objEliminar_Cotizacion(int id){
+        try {
+            con=objConexion.stringcon();
+            st=con.prepareStatement("Eliminar_Cotizacion '"+id+"'");
+            ResultSet rs = st.executeQuery();
+            String resp="";
+             while (rs.next()) {
+               resp = rs.getString(1);
+           }
+            JOptionPane.showMessageDialog(null, resp);
+             //con.close();       
+             //pendiente
+        } catch (Exception e) {
+           return null;
+        }
+        return null;
+    }
 }
    
     

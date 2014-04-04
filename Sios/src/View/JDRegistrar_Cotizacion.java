@@ -14,9 +14,15 @@ import javax.swing.event.DocumentListener;
 public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
     ClienteCtl objClienteCtl = new ClienteCtl();
     CotizacionCtl objCotizacionCtl = new CotizacionCtl();
+    String trabajo, preprensa, plancha, impresion, terminado, fecha,rs;
     int idcotizacion, idcliente;
 //    int st1=0, st2=0, st3=0, st4=0, st5=0, st6=0, st7=0,st8=0, st9=0, st10=0, st11=0, st12=0, st13=0, st14=0, st15=0, st16=0, st17=0, st18=0, st19=0, st20=0;
     int subtotal=0, st=0;
+    int cant_p_orig, val_p_orig, cant_p_copia, val_p_copia, cant_manila, val_manila, cant_corte, val_corte, cant_preprensa, val_preprensa;
+    int cant_plancha, val_plancha, cant_impresion, val_impresion, cant_numeracion, val_numeracion, cant_grafado, val_grafado, cant_troquel, val_troquel;
+    int cant_repujado, val_repujado, cant_realzado, val_realzado, cant_estampado, val_estampado, cant_plegado, val_plegado, cant_cosido, val_cosido;
+    int cant_emblocado, val_emblocado, cant_empacado, val_empacado, cant_trans, val_trans, cant_otros, val_otros, cant_terminado, val_terminado, estado=1;
+//    double utilidad=0;
     public JDRegistrar_Cotizacion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -99,6 +105,7 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         txtValorEmpacado = new javax.swing.JTextField();
         txtSubtempacado = new javax.swing.JTextField();
+        btnCalcular = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -329,79 +336,61 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
 
         jLabel13.setText("Estampado");
 
-        txtCantEstampado.setText("0");
-
-        txtValorEstampado.setText("0");
-        txtValorEstampado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorEstampadoKeyReleased(evt);
+        txtValorEstampado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorEstampadoFocusLost(evt);
             }
         });
 
         txtSubtestampado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtestampado.setEnabled(false);
 
-        txtCantCosido.setText("0");
-
         jLabel14.setText("Cosido");
 
-        txtValorCosido.setText("0");
-        txtValorCosido.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorCosidoKeyReleased(evt);
+        txtValorCosido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorCosidoFocusLost(evt);
             }
         });
 
         txtSubtcosido.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtcosido.setEnabled(false);
 
-        txtCantEmblocado.setText("0");
-
         jLabel15.setText("Emblocado");
 
-        txtValorEmblocado.setText("0");
-        txtValorEmblocado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorEmblocadoKeyReleased(evt);
+        txtValorEmblocado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorEmblocadoFocusLost(evt);
             }
         });
 
         txtSubtemblocado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtemblocado.setEnabled(false);
 
-        txtCantTransporte.setText("0");
-
         jLabel16.setText("Transporte");
 
-        txtValorTransporte.setText("0");
-        txtValorTransporte.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorTransporteKeyReleased(evt);
+        txtValorTransporte.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorTransporteFocusLost(evt);
             }
         });
 
         txtSubttransporte.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubttransporte.setEnabled(false);
 
-        txtCantOtros.setText("0");
-
-        txtCantTerminado.setText("0");
-
         cbxTerminado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Terminado", "Mate", "Brillo", "Mate con Reserva" }));
 
-        txtValorTerminado.setText("0");
-        txtValorTerminado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorTerminadoKeyReleased(evt);
+        txtValorTerminado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorTerminadoFocusLost(evt);
             }
         });
 
         jLabel17.setText("Otros");
 
-        txtValorOtros.setText("0");
-        txtValorOtros.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorOtrosKeyReleased(evt);
+        txtValorOtros.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorOtrosFocusLost(evt);
             }
         });
 
@@ -447,33 +436,29 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
         txtValorTrabajo.setEnabled(false);
         jPanel3.add(txtValorTrabajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 110, -1));
 
-        txtCantPlegado.setText("0");
-
         jLabel18.setText("Plegado");
 
-        txtValorPlegado.setText("0");
-        txtValorPlegado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorPlegadoKeyReleased(evt);
+        txtValorPlegado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorPlegadoFocusLost(evt);
             }
         });
 
         txtSubtplegado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtplegado.setEnabled(false);
 
-        txtCantEmpacado.setText("0");
-
         jLabel20.setText("Empacado");
 
-        txtValorEmpacado.setText("0");
-        txtValorEmpacado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorEmpacadoKeyReleased(evt);
+        txtValorEmpacado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorEmpacadoFocusLost(evt);
             }
         });
 
         txtSubtempacado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtempacado.setEnabled(false);
+
+        btnCalcular.setText("CALCULAR");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -566,7 +551,11 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
                             .addComponent(txtValorOtros)
                             .addGap(18, 18, 18)
                             .addComponent(txtSubtotros, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCalcular)
+                .addGap(61, 61, 61))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -625,7 +614,9 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
                         .addComponent(txtValorTerminado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtSubtterminado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cbxTerminado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCalcular)
+                .addGap(4, 4, 4)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
         );
 
@@ -642,54 +633,42 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
 
         jLabel24.setText("Papel Original");
 
-        txtCantOriginal.setText("0");
-
-        txtValorOriginal.setText("0");
-        txtValorOriginal.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorOriginalKeyReleased(evt);
+        txtValorOriginal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorOriginalFocusLost(evt);
             }
         });
 
         txtSubtoriginal.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtoriginal.setEnabled(false);
 
-        txtCantCopia.setText("0");
-
         jLabel25.setText("Papel Copia");
 
-        txtValorCopia.setText("0");
-        txtValorCopia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorCopiaKeyReleased(evt);
+        txtValorCopia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorCopiaFocusLost(evt);
             }
         });
 
         txtSubtcopia.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtcopia.setEnabled(false);
 
-        txtCantManila.setText("0");
-
         jLabel26.setText("Manila");
 
-        txtValorManila.setText("0");
-        txtValorManila.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorManilaKeyReleased(evt);
+        txtValorManila.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorManilaFocusLost(evt);
             }
         });
 
         txtSubtmanila.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtmanila.setEnabled(false);
 
-        txtCantCorte.setText("0");
-
         jLabel27.setText("Corte");
 
-        txtValorCorte.setText("0");
-        txtValorCorte.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorCorteKeyReleased(evt);
+        txtValorCorte.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorCorteFocusLost(evt);
             }
         });
 
@@ -698,12 +677,9 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
 
         cbxPreprensa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pre Prensa", "Arte", "Negativo", "Color Kit", "Clicet" }));
 
-        txtCantPreprensa.setText("0");
-
-        txtValorPreprensa.setText("0");
-        txtValorPreprensa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorPreprensaKeyReleased(evt);
+        txtValorPreprensa.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorPreprensaFocusLost(evt);
             }
         });
 
@@ -712,12 +688,9 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
 
         cbxPlancha.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tipo Plancha", "P.Electros.", "P.Metálica" }));
 
-        txtCantPlancha.setText("0");
-
-        txtValorPlancha.setText("0");
-        txtValorPlancha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorPlanchaKeyReleased(evt);
+        txtValorPlancha.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorPlanchaFocusLost(evt);
             }
         });
 
@@ -726,82 +699,64 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
 
         cbxImpresion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tipo Impresión", "Sencilla", "Doble" }));
 
-        txtCantImpresion.setText("0");
-
-        txtValorImpresion.setText("0");
-        txtValorImpresion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorImpresionKeyReleased(evt);
+        txtValorImpresion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorImpresionFocusLost(evt);
             }
         });
 
         txtSubtimpresion.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtimpresion.setEnabled(false);
 
-        txtCantNumero.setText("0");
-
         jLabel29.setText("Numeración");
 
-        txtValorNumero.setText("0");
-        txtValorNumero.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorNumeroKeyReleased(evt);
+        txtValorNumero.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorNumeroFocusLost(evt);
             }
         });
 
         txtSubtnumero.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtnumero.setEnabled(false);
 
-        txtCantGrafado.setText("0");
-
         jLabel30.setText("Grafado");
 
-        txtValorGrafado.setText("0");
-        txtValorGrafado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorGrafadoKeyReleased(evt);
+        txtValorGrafado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorGrafadoFocusLost(evt);
             }
         });
 
         txtSubtgrafado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtgrafado.setEnabled(false);
 
-        txtCantTroquel.setText("0");
-
         jLabel31.setText("Troquelado");
 
-        txtValorTroquel.setText("0");
-        txtValorTroquel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorTroquelKeyReleased(evt);
+        txtValorTroquel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorTroquelFocusLost(evt);
             }
         });
 
         txtSubttroquel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubttroquel.setEnabled(false);
 
-        txtCantRepujado.setText("0");
-
         jLabel32.setText("Repujado");
 
-        txtValorRepujado.setText("0");
-        txtValorRepujado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorRepujadoKeyReleased(evt);
+        txtValorRepujado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorRepujadoFocusLost(evt);
             }
         });
 
         txtSubtrepujado.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtSubtrepujado.setEnabled(false);
 
-        txtCantRealzado.setText("0");
-
         jLabel33.setText("Realzado");
 
-        txtValorRealzado.setText("0");
-        txtValorRealzado.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtValorRealzadoKeyReleased(evt);
+        txtValorRealzado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtValorRealzadoFocusLost(evt);
             }
         });
 
@@ -1086,305 +1041,307 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGrabarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGrabarActionPerformed
-        String trabajo, preprensa, plancha, impresion, terminado, rs;
+//       String trabajo, preprensa, plancha, impresion, terminado, rs;
         Date fecha;
-        int cant_p_orig, val_p_orig, cant_p_copia, val_p_copia, cant_manila, val_manila, cant_corte, val_corte, cant_preprensa, val_preprensa;
-        int cant_plancha, val_plancha, cant_impresion, val_impresion, cant_numeracion, val_numeracion, cant_grafado, val_grafado, cant_troquel, val_troquel;
-        int cant_repujado, val_repujado, cant_realzado, val_realzado, cant_estampado, val_estampado, cant_plegado, val_plegado, cant_cosido, val_cosido;
-        int cant_emblocado, val_emblocado, cant_empacado, val_empacado, cant_trans, val_trans, cant_otros, val_otros, cant_terminado, val_terminado, estado=1, subtotal;
+//        int cant_p_orig, val_p_orig, cant_p_copia, val_p_copia, cant_manila, val_manila, cant_corte, val_corte, cant_preprensa, val_preprensa;
+//        int cant_plancha, val_plancha, cant_impresion, val_impresion, cant_numeracion, val_numeracion, cant_grafado, val_grafado, cant_troquel, val_troquel;
+//        int cant_repujado, val_repujado, cant_realzado, val_realzado, cant_estampado, val_estampado, cant_plegado, val_plegado, cant_cosido, val_cosido;
+//        int cant_emblocado, val_emblocado, cant_empacado, val_empacado, cant_trans, val_trans, cant_otros, val_otros, cant_terminado, val_terminado, estado=1, subtotal;
         double utilidad=0;
-        idcotizacion = Integer.parseInt(txtNumeroCotiza.getText());
+        //idcotizacion = Integer.parseInt(txtNumero_Identifica.getText());
         trabajo = txtNomb_Trabajo.getText().toUpperCase();
-        //fecha= (Date)jdateFecha.getDate();
-        Date now = new Date(System.currentTimeMillis());
-        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
-        fecha=now;
-        cant_p_orig = Integer.parseInt(txtCantOriginal.getText());
-        val_p_orig = Integer.parseInt(txtValorOriginal.getText());
-        cant_p_copia = Integer.parseInt(txtCantCopia.getText());
-        val_p_copia = Integer.parseInt(txtValorCopia.getText());
-        cant_manila = Integer.parseInt(txtCantManila.getText());
-        val_manila = Integer.parseInt(txtValorManila.getText());
-        cant_corte = Integer.parseInt(txtCantCorte.getText());
-        val_corte = Integer.parseInt(txtValorCorte.getText());
-        cant_preprensa = Integer.parseInt(txtCantPreprensa.getText());
-        preprensa = cbxPreprensa.getSelectedItem().toString();
-        val_preprensa = Integer.parseInt(txtValorPreprensa.getText());
-        cant_plancha = Integer.parseInt(txtCantPlancha.getText());
-        plancha = cbxPlancha.getSelectedItem().toString();
-        val_plancha = Integer.parseInt(txtValorPlancha.getText());
-        cant_impresion = Integer.parseInt(txtCantImpresion.getText());
-        impresion = cbxImpresion.getSelectedItem().toString();
-        val_impresion = Integer.parseInt(txtValorImpresion.getText());
-        cant_numeracion = Integer.parseInt(txtCantNumero.getText());
-        val_numeracion = Integer.parseInt(txtValorNumero.getText());
-        cant_grafado = Integer.parseInt(txtCantGrafado.getText());
-        val_grafado = Integer.parseInt(txtValorGrafado.getText());
-        cant_troquel = Integer.parseInt(txtCantTroquel.getText());
-        val_troquel = Integer.parseInt(txtValorTroquel.getText());
-        cant_repujado = Integer.parseInt(txtCantRepujado.getText());
-        val_repujado = Integer.parseInt(txtValorRepujado.getText());
-        cant_realzado = Integer.parseInt(txtCantRealzado.getText());
-        val_realzado = Integer.parseInt(txtValorRealzado.getText());
-        cant_estampado = Integer.parseInt(txtCantEstampado.getText());
-        val_estampado = Integer.parseInt(txtValorEstampado.getText());
-        cant_plegado = Integer.parseInt(txtCantPlegado.getText());
-        val_plegado = Integer.parseInt(txtValorPlegado.getText());
-        cant_cosido = Integer.parseInt(txtCantCosido.getText());
-        val_cosido = Integer.parseInt(txtValorCosido.getText());    
-        cant_emblocado = Integer.parseInt(txtCantEmblocado.getText());
-        val_emblocado = Integer.parseInt(txtValorEmblocado.getText());
-        cant_empacado = Integer.parseInt(txtCantEmpacado.getText());
-        val_empacado = Integer.parseInt(txtValorEmpacado.getText());
-        cant_trans = Integer.parseInt(txtCantTransporte.getText());
-        val_trans = Integer.parseInt(txtValorTransporte.getText());
-        cant_otros = Integer.parseInt(txtCantOtros.getText());
-        val_otros = Integer.parseInt(txtValorOtros.getText());
-        cant_terminado = Integer.parseInt(txtCantTerminado.getText());
-        terminado = cbxTerminado.getSelectedItem().toString();
-        val_terminado = Integer.parseInt(txtValorTerminado.getText());
-        utilidad=Double.parseDouble(txtUtilidad.getText());
+        fecha=(Date) jdateFecha.getDate();
+//        fecha=jdateFecha.getd;
+//        Date now = new Date(System.currentTimeMillis());
+//        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+//        fecha=now;
         
-        rs=objCotizacionCtl.registrar_cotizacionCtl(idcliente, trabajo, fecha, cant_p_orig, val_p_orig, cant_p_copia, val_p_copia, 
+        try{
+            if (!txtCantOriginal.getText().equals("") &&! txtValorOriginal.getText().equals("")) {
+                cant_p_orig = Integer.parseInt(txtCantOriginal.getText());
+                val_p_orig = Integer.parseInt(txtValorOriginal.getText());
+            }
+            if (!txtCantCopia.getText().equals("") &&! txtValorCopia.getText().equals("")) {
+                cant_p_copia = Integer.parseInt(txtCantCopia.getText());
+                val_p_copia = Integer.parseInt(txtValorCopia.getText());
+            }
+            if (!txtCantManila.getText().equals("") &&! txtValorManila.getText().equals("")) {
+                cant_manila = Integer.parseInt(txtCantManila.getText());
+                val_manila = Integer.parseInt(txtValorManila.getText());
+            }
+            if (!txtCantCorte.getText().equals("") &&! txtValorCorte.getText().equals("")) {
+                cant_corte = Integer.parseInt(txtCantCorte.getText());
+                val_corte = Integer.parseInt(txtValorCorte.getText());
+            }
+            if (!txtCantPreprensa.getText().equals("") &&! txtValorPreprensa.getText().equals("")) {
+                cant_preprensa = Integer.parseInt(txtCantPreprensa.getText());
+                preprensa = cbxPreprensa.getSelectedItem().toString();
+                val_preprensa = Integer.parseInt(txtValorPreprensa.getText());
+            }
+            if (!txtCantPlancha.getText().equals("") &&! txtValorPlancha.getText().equals("")) {
+                cant_plancha = Integer.parseInt(txtCantPlancha.getText());
+                plancha = cbxPlancha.getSelectedItem().toString();
+                val_plancha = Integer.parseInt(txtValorPlancha.getText());
+            }
+            if (!txtCantImpresion.getText().equals("") &&! txtValorImpresion.getText().equals("")) {
+                cant_impresion = Integer.parseInt(txtCantImpresion.getText());
+                impresion = cbxImpresion.getSelectedItem().toString();
+                val_impresion = Integer.parseInt(txtValorImpresion.getText());
+            }
+            if (!txtCantNumero.getText().equals("") &&! txtValorNumero.getText().equals("")) {
+                cant_numeracion = Integer.parseInt(txtCantNumero.getText());
+                val_numeracion = Integer.parseInt(txtValorNumero.getText());
+            }
+            if (!txtCantGrafado.getText().equals("") &&! txtValorGrafado.getText().equals("")) {
+                cant_grafado = Integer.parseInt(txtCantGrafado.getText());
+                val_grafado = Integer.parseInt(txtValorGrafado.getText());
+            }
+            if (!txtCantTroquel.getText().equals("") &&! txtValorTroquel.getText().equals("")) {
+                cant_troquel = Integer.parseInt(txtCantTroquel.getText());
+                val_troquel = Integer.parseInt(txtValorTroquel.getText());
+            }
+            if (!txtCantRepujado.getText().equals("") &&! txtValorRepujado.getText().equals("")) {
+                cant_repujado = Integer.parseInt(txtCantRepujado.getText());
+                val_repujado = Integer.parseInt(txtValorRepujado.getText());
+            }
+            if (!txtCantRealzado.getText().equals("") &&! txtValorRealzado.getText().equals("")) {
+                cant_realzado = Integer.parseInt(txtCantRealzado.getText());
+                val_realzado = Integer.parseInt(txtValorRealzado.getText());
+            }
+            if (!txtCantRealzado.getText().equals("") &&! txtValorRealzado.getText().equals("")) {
+                cant_realzado = Integer.parseInt(txtCantRealzado.getText());
+                val_realzado = Integer.parseInt(txtValorRealzado.getText());
+            }
+            if (!txtCantEstampado.getText().equals("") &&! txtValorEstampado.getText().equals("")) {
+                cant_estampado = Integer.parseInt(txtCantEstampado.getText());
+                val_estampado = Integer.parseInt(txtValorEstampado.getText());
+            }
+            if (!txtCantPlegado.getText().equals("") &&! txtValorPlegado.getText().equals("")) {
+                cant_plegado = Integer.parseInt(txtCantPlegado.getText());
+                val_plegado = Integer.parseInt(txtValorPlegado.getText());
+            }
+            if (!txtCantCosido.getText().equals("") &&! txtValorCosido.getText().equals("")) {
+                cant_cosido = Integer.parseInt(txtCantCosido.getText());
+                val_cosido = Integer.parseInt(txtValorCosido.getText());  
+            }
+            if (!txtCantEmblocado.getText().equals("") &&! txtValorEmblocado.getText().equals("")) {
+                cant_emblocado = Integer.parseInt(txtCantEmblocado.getText());
+                val_emblocado = Integer.parseInt(txtValorEmblocado.getText());
+            }
+            if (!txtCantEmpacado.getText().equals("") &&! txtValorEmpacado.getText().equals("")) {
+                cant_empacado = Integer.parseInt(txtCantEmpacado.getText());
+                val_empacado = Integer.parseInt(txtValorEmpacado.getText());
+            }
+            if (!txtCantTransporte.getText().equals("") &&! txtValorTransporte.getText().equals("")) {
+                cant_trans = Integer.parseInt(txtCantTransporte.getText());
+                val_trans = Integer.parseInt(txtValorTransporte.getText());
+            }
+            if (!txtCantOtros.getText().equals("") &&! txtValorOtros.getText().equals("")) {
+                cant_otros = Integer.parseInt(txtCantOtros.getText());
+                val_otros = Integer.parseInt(txtValorOtros.getText());
+            }
+            if (!txtCantTerminado.getText().equals("") &&! txtValorTerminado.getText().equals("")) {
+                cant_terminado = Integer.parseInt(txtCantTerminado.getText());
+                terminado = cbxTerminado.getSelectedItem().toString();
+                val_terminado = Integer.parseInt(txtValorTerminado.getText());
+            }
+        utilidad=Double.parseDouble(txtUtilidad.getText());
+        rs=objCotizacionCtl.registrar_cotizacionCtl(idcliente, trabajo,cant_p_orig, val_p_orig, cant_p_copia, val_p_copia, 
                   cant_manila,val_manila, cant_corte, val_corte, preprensa, cant_preprensa, val_preprensa, plancha, cant_plancha, val_plancha,
                   impresion, cant_impresion, val_impresion, cant_numeracion, val_numeracion, cant_grafado, val_grafado, cant_troquel, val_troquel,
                   cant_repujado, val_repujado, cant_realzado, val_realzado,cant_estampado, val_estampado, cant_plegado, val_plegado, cant_cosido, val_cosido,
                   cant_emblocado, val_emblocado, cant_empacado, val_empacado, cant_trans, val_trans, cant_otros, val_otros, terminado, cant_terminado, val_terminado,
-                  utilidad, estado=0);
+                  utilidad, estado);
+        }catch(Exception ex){JOptionPane.showConfirmDialog(this,ex.getMessage());}
+            
 
-        //JOptionPane.showMessageDialog(this, rs);
+
+        JOptionPane.showMessageDialog(this, rs);
 //        limpiarcliente();
 
 
 
     }//GEN-LAST:event_btnGrabarActionPerformed
 
-    private void txtValorOriginalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorOriginalKeyReleased
-        //int st=0;
+    private void txtValorOriginalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorOriginalFocusLost
         try{
-        st=Integer.parseInt(txtCantOriginal.getText())*Integer.parseInt(txtValorOriginal.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtoriginal.setText(String.valueOf(st));
-        //        if(txtSubtoriginal.getText()!=(null)){
-//            int st;
-//            st=Integer.parseInt(txtCantOriginal.getText())*Integer.parseInt(txtValorOriginal.getText());
-//            this.txtSubtoriginal.setText(String.valueOf(st));
-//        }else  {
-//             this.txtSubtoriginal.setText("");
-//        }
-    }//GEN-LAST:event_txtValorOriginalKeyReleased
+            st=(Integer.parseInt(txtCantOriginal.getText())*Integer.parseInt(txtValorOriginal.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtoriginal.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorOriginalFocusLost
 
-    private void txtValorCopiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorCopiaKeyReleased
-        //int st=0;
+    private void txtValorCopiaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorCopiaFocusLost
         try{
-        st=Integer.parseInt(txtCantCopia.getText())*Integer.parseInt(txtValorCopia.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtcopia.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorCopiaKeyReleased
+            st=(Integer.parseInt(txtCantCopia.getText())*Integer.parseInt(txtValorCopia.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtcopia.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorCopiaFocusLost
 
-    private void txtValorManilaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorManilaKeyReleased
-       //int st=0;
+    private void txtValorManilaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorManilaFocusLost
         try{
-        st=Integer.parseInt(txtCantManila.getText())*Integer.parseInt(txtValorManila.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtmanila.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorManilaKeyReleased
+            st=(Integer.parseInt(txtCantManila.getText())*Integer.parseInt(txtValorManila.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtmanila.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorManilaFocusLost
 
-    private void txtValorCorteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorCorteKeyReleased
-        //int st=0;
+    private void txtValorCorteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorCorteFocusLost
         try{
-        st=Integer.parseInt(txtCantCorte.getText())*Integer.parseInt(txtValorCorte.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtcorte.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorCorteKeyReleased
+            st=(Integer.parseInt(txtCantCorte.getText())*Integer.parseInt(txtValorCorte.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtcorte.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorCorteFocusLost
 
-    private void txtValorPreprensaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorPreprensaKeyReleased
-        //int st=0;
+    private void txtValorPreprensaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorPreprensaFocusLost
         try{
-        st=Integer.parseInt(txtCantPreprensa.getText())*Integer.parseInt(txtValorPreprensa.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtpreprensa.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorPreprensaKeyReleased
+            st=(Integer.parseInt(txtCantPreprensa.getText())*Integer.parseInt(txtValorPreprensa.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtpreprensa.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorPreprensaFocusLost
 
-    private void txtValorPlanchaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorPlanchaKeyReleased
-        //int st=0;
+    private void txtValorPlanchaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorPlanchaFocusLost
         try{
-        st=Integer.parseInt(txtCantPlancha.getText())*Integer.parseInt(txtValorPlancha.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtplancha.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorPlanchaKeyReleased
+            st=(Integer.parseInt(txtCantPlancha.getText())*Integer.parseInt(txtValorPlancha.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtplancha.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorPlanchaFocusLost
 
-    private void txtValorImpresionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorImpresionKeyReleased
-        //int st=0;
-        try{
-        st=Integer.parseInt(txtCantImpresion.getText())*Integer.parseInt(txtValorImpresion.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtimpresion.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorImpresionKeyReleased
+    private void txtValorImpresionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorImpresionFocusLost
+       try{
+            st=(Integer.parseInt(txtCantImpresion.getText())*Integer.parseInt(txtValorImpresion.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtimpresion.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorImpresionFocusLost
 
-    private void txtValorNumeroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorNumeroKeyReleased
-        //int st=0;
+    private void txtValorNumeroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorNumeroFocusLost
         try{
-        st=Integer.parseInt(txtCantNumero.getText())*Integer.parseInt(txtValorNumero.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtnumero.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorNumeroKeyReleased
+            st=(Integer.parseInt(txtCantNumero.getText())*Integer.parseInt(txtValorNumero.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtnumero.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorNumeroFocusLost
 
-    private void txtValorGrafadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorGrafadoKeyReleased
-    //int st=0;
+    private void txtValorGrafadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorGrafadoFocusLost
         try{
-        st=Integer.parseInt(txtCantGrafado.getText())*Integer.parseInt(txtValorGrafado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtgrafado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorGrafadoKeyReleased
+            st=(Integer.parseInt(txtCantGrafado.getText())*Integer.parseInt(txtValorGrafado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtgrafado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorGrafadoFocusLost
 
-    private void txtValorTroquelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorTroquelKeyReleased
-        //int st=0;
+    private void txtValorTroquelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorTroquelFocusLost
         try{
-        st=Integer.parseInt(txtCantTroquel.getText())*Integer.parseInt(txtValorTroquel.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubttroquel.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorTroquelKeyReleased
+            st=(Integer.parseInt(txtCantTroquel.getText())*Integer.parseInt(txtValorTroquel.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubttroquel.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorTroquelFocusLost
 
-    private void txtValorRepujadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorRepujadoKeyReleased
-        //int st=0;
+    private void txtValorRepujadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorRepujadoFocusLost
         try{
-        st=Integer.parseInt(txtCantRepujado.getText())*Integer.parseInt(txtValorRepujado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtrepujado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorRepujadoKeyReleased
+            st=(Integer.parseInt(txtCantRepujado.getText())*Integer.parseInt(txtValorRepujado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtrepujado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorRepujadoFocusLost
 
-    private void txtValorRealzadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorRealzadoKeyReleased
-        //int st=0;
+    private void txtValorRealzadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorRealzadoFocusLost
         try{
-        st=Integer.parseInt(txtCantRealzado.getText())*Integer.parseInt(txtValorRealzado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtrealzado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorRealzadoKeyReleased
+            st=(Integer.parseInt(txtCantRealzado.getText())*Integer.parseInt(txtValorRealzado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtrealzado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorRealzadoFocusLost
 
-    private void txtValorEstampadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorEstampadoKeyReleased
-        //int st=0;
-        try{
-        st=Integer.parseInt(txtCantEstampado.getText())*Integer.parseInt(txtValorEstampado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtestampado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorEstampadoKeyReleased
+    private void txtValorEstampadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorEstampadoFocusLost
+         try{
+            st=(Integer.parseInt(txtCantEstampado.getText())*Integer.parseInt(txtValorEstampado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtestampado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorEstampadoFocusLost
 
-    private void txtValorPlegadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorPlegadoKeyReleased
-        //int st=0;
-        try{
-        st=Integer.parseInt(txtCantPlegado.getText())*Integer.parseInt(txtValorPlegado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtplegado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorPlegadoKeyReleased
+    private void txtValorPlegadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorPlegadoFocusLost
+         try{
+            st=(Integer.parseInt(txtCantPlegado.getText())*Integer.parseInt(txtValorPlegado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtplegado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorPlegadoFocusLost
 
-    private void txtValorCosidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorCosidoKeyReleased
-        //int st=0;
+    private void txtValorCosidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorCosidoFocusLost
         try{
-        st=Integer.parseInt(txtCantCosido.getText())*Integer.parseInt(txtValorCosido.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtcosido.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorCosidoKeyReleased
+            st=(Integer.parseInt(txtCantCosido.getText())*Integer.parseInt(txtValorCosido.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtcosido.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorCosidoFocusLost
 
-    private void txtValorEmblocadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorEmblocadoKeyReleased
-        //int st=0;
+    private void txtValorEmblocadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorEmblocadoFocusLost
         try{
-        st=Integer.parseInt(txtCantEmblocado.getText())*Integer.parseInt(txtValorEmblocado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtemblocado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorEmblocadoKeyReleased
+            st=(Integer.parseInt(txtCantEmblocado.getText())*Integer.parseInt(txtValorEmblocado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtemblocado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorEmblocadoFocusLost
 
-    private void txtValorEmpacadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorEmpacadoKeyReleased
-        //int st=0;
+    private void txtValorEmpacadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorEmpacadoFocusLost
         try{
-        st=Integer.parseInt(txtCantEmpacado.getText())*Integer.parseInt(txtValorEmpacado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtempacado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorEmpacadoKeyReleased
+            st=(Integer.parseInt(txtCantEmpacado.getText())*Integer.parseInt(txtValorEmpacado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtempacado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorEmpacadoFocusLost
 
-    private void txtValorTransporteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorTransporteKeyReleased
-        //int st=0;
+    private void txtValorTransporteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorTransporteFocusLost
         try{
-        st=Integer.parseInt(txtCantTransporte.getText())*Integer.parseInt(txtValorTransporte.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubttransporte.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorTransporteKeyReleased
+            st=(Integer.parseInt(txtCantTransporte.getText())*Integer.parseInt(txtValorTransporte.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubttransporte.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorTransporteFocusLost
 
-    private void txtValorOtrosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorOtrosKeyReleased
-        //int st=0;
+    private void txtValorOtrosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorOtrosFocusLost
         try{
-        st=Integer.parseInt(txtCantOtros.getText())*Integer.parseInt(txtValorOtros.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtotros.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorOtrosKeyReleased
+            st=(Integer.parseInt(txtCantOtros.getText())*Integer.parseInt(txtValorOtros.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtotros.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorOtrosFocusLost
 
-    private void txtValorTerminadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorTerminadoKeyReleased
-        //int st=0;
+    private void txtValorTerminadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtValorTerminadoFocusLost
         try{
-        st=Integer.parseInt(txtCantTerminado.getText())*Integer.parseInt(txtValorTerminado.getText());
-        subtotal=subtotal+st;
-        txtSubtotal.setText(String.valueOf(subtotal));
-        }
-        catch(Exception ex){}
-        txtSubtterminado.setText(String.valueOf(st));
-    }//GEN-LAST:event_txtValorTerminadoKeyReleased
+            st=(Integer.parseInt(txtCantTerminado.getText())*Integer.parseInt(txtValorTerminado.getText()));
+            subtotal=subtotal+st;
+            txtSubtotal.setText(Integer.toString(subtotal));
+        }catch(Exception ex){}
+              txtSubtterminado.setText(Integer.toString(st));
+    }//GEN-LAST:event_txtValorTerminadoFocusLost
     /**
      * @param args the command line arguments
      */
@@ -1431,6 +1388,7 @@ public class JDRegistrar_Cotizacion extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnGrabar;
     private javax.swing.JButton btnRegreso;
     private javax.swing.JComboBox cbxImpresion;
